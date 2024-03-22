@@ -21,7 +21,7 @@
     <!-- Nav Item - Pages Collapse Menu -->
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('article.index') }}">
+        <a class="nav-link collapsed" href="{{ route('articles.index') }}">
             <i class="fas fa-ship"></i>
             <span>Articles</span>
         </a>
@@ -29,7 +29,7 @@
 
     @if(\Illuminate\Support\Facades\Gate::allows('isReviewer'))
         <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('statistic.index') }}">
+                <a class="nav-link collapsed" href="{{ route('statistics.index') }}">
                 <i class="fas fa-users"></i>
                 <span>Statistics</span>
             </a>

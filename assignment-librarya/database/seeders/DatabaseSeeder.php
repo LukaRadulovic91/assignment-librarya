@@ -9,6 +9,7 @@ class DatabaseSeeder extends Seeder
 {
     protected $seeders = [
         UserSeeder::class,
+        ArticleSeeder::class,
     ];
 
     /**

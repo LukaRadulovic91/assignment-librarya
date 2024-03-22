@@ -27,8 +27,16 @@ Route::middleware(['auth:web'])->group(function () {
         return view('home');
     })->name('dashboard');
 
-    Route::resource('article', 'App\Http\Controllers\Web\ArticleController');
-    Route::resource('statistic', 'App\Http\Controllers\Web\StatisticsController', ['only' => ['index']]);
+    /** Articles routes */
+    Route::group(['articles'], static function() {
+        Route::resource('articles', 'App\Http\Controllers\Web\ArticleController');
+        Route::get('fetch', [App\Http\Controllers\Web\ArticleController::class, 'fetch'])->name('articles.fetch');
+    });
+
+    /** Statistics routes */
+    Route::group(['statistics'], static function() {
+        Route::resource('statistics', 'App\Http\Controllers\Web\StatisticsController', ['only' => ['index']]);
+    });
 
     Route::fallback(static function () {
         return back();

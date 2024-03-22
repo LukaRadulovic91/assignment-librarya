@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Enums\Roles;
-use App\Models\User;
-use Database\Factories\AuthorFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Enums\Roles;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>

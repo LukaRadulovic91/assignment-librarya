@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Http\Controllers\Controller;
+use Yajra\DataTables\Exceptions\Exception;
 
 class ArticleController extends Controller
 {
@@ -16,6 +18,24 @@ class ArticleController extends Controller
     public function index(): View
     {
         return view('pages.articles.index');
+    }
+
+    /**
+     * @return JsonResponse
+     *
+     * @throws Exception
+     */
+    public function fetch()
+    {
+        return datatables(Article::get())->toJson();
+
+//        $demo = $this->clientDatatableRepository->getQuery();
+//        return datatables()->of($demo)
+//            ->filter(function ($query) use ($request) {
+//                $this->clientDatatableRepository->filterByCustomQuery($query, $request->all());
+//                $this->clientDatatableRepository->filterByQuery($query, $request->all());
+//            })
+//            ->make(true);
     }
 
     /**
