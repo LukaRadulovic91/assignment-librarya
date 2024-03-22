@@ -17,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware(['auth:api', 'verified'])->group(function () {
+
+    /** Reviewer routes */
+    Route::group(['reviewer'], static function() {
+        Route::get('test', function () {
+            return 'this is working';
+        });
+    });
+
+    Route::post('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
+
+});
+
+Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login'])->name('api.login');

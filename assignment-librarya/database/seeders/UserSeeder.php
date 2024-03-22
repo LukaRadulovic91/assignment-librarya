@@ -6,6 +6,7 @@ use App\Enums\Roles;
 use App\Models\User;
 use Database\Factories\AuthorFactory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
@@ -37,9 +38,9 @@ class UserSeeder extends Seeder
             User::create([
                 'role_id' => $userType,
                 'name' => $userTypeName.$i,
-                'email' => $userTypeName.$i.'@email.com',
+                'email' => $userTypeName.$i.'@mail.com',
                 'email_verified_at' => now(),
-                'password' => '$2a$12$6q0OYFpKtSe2YJg7w8vWWu/6lY6u6s7zTrcJ9ISy4SbBEo6Zbk0y6', //password,
+                'password' => Hash::make('password'), //password,
                 'remember_token' => Str::random(10),
             ]);
         }
