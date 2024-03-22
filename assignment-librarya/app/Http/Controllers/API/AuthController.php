@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Enums\Roles;
 use DB;
 use Validator;
 use JWTAuth;
@@ -30,10 +31,14 @@ class AuthController extends Controller
             'email' => 'required|string|email',
             'password' => 'required|string'
         ]);
-        $credentials = $request->only('email', 'password');
 
         $ttl = config('jwt.ttl');
-        $token = JWTAuth::customClaims(['exp' => now()->addMinutes($ttl)->timestamp])->attempt($credentials);
+        $token = JWTAuth::customClaims(['exp' => now()->addMinutes($ttl)->timestamp])
+            ->attempt([
+                'email' => $request->email,
+                'password' => $request->password,
+                'role_id' => Roles::REVIEWER
+            ]);
 
         if (!$token) {
             return response()->json([
