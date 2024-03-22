@@ -21,32 +21,22 @@
     <!-- Nav Item - Pages Collapse Menu -->
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('ships.index') }}">
+        <a class="nav-link collapsed" href="{{--{{ route('articles.index') }}--}}">
             <i class="fas fa-ship"></i>
-            <span>Ships</span>
+            <span>Articles</span>
         </a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('users.index') }}">
-            <i class="fas fa-users"></i>
-            <span>Crew Members</span>
-        </a>
-    </li>
+    @if(\Illuminate\Support\Facades\Gate::allows('isReviewer'))
+        <li class="nav-item">
+    {{--            <a href="{{ route('posts.edit', $post) }}">Edit Post</a>--}}
+                <a class="nav-link collapsed" href="{{--{{ route('statistics.index') }}--}}">
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('ranks.index') }}">
-            <i class="fas fa-star"></i>
-            <span>Ranks</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('notifications.index') }}">
-            <i class="fas fa-envelope fa-fw"></i>
-            <span>Notifications</span>
-        </a>
-    </li>
+                <i class="fas fa-users"></i>
+                <span>Statistics</span>
+            </a>
+        </li>
+    @endif
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

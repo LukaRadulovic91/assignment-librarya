@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Roles;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -60,15 +61,5 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     public function getJWTCustomClaims()
     {
         return [];
-    }
-
-    /**
-     * method used to set email_verified_at attribute
-     *
-     * @param $value
-     */
-    public function setEmailVerifiedAtAttribute($value)
-    {
-        $this->attributes['email_verified_at'] = !empty($value) ? $value : null;
     }
 }
