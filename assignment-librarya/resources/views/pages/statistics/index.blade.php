@@ -15,19 +15,17 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">List of ships</h6>
+            <h6 class="m-0 font-weight-bold text-primary">List of Articles</h6>
         </div>
         <div class="card-body">
-            @if(\Illuminate\Support\Facades\Gate::allows('isAuthor'))
-                <div class="my-lg-3 d-flex">
-                    <a href="{{ route('article.create') }}"
-                       class="btn btn-success mr-auto waves-effect">
-                        <span class="btn-label">
-                            <i class="ion-android-add"></i>
-                        </span> Create Ship
-                    </a>
-                </div><br>
-            @endif
+{{--            <div class="my-lg-3 d-flex">--}}
+{{--                <a href="{{ route('article.create') }}"--}}
+{{--                   class="btn btn-success mr-auto waves-effect">--}}
+{{--                    <span class="btn-label">--}}
+{{--                        <i class="ion-android-add"></i>--}}
+{{--                    </span> Create Ship--}}
+{{--                </a>--}}
+{{--            </div><br>--}}
             <div class="table-responsive">
                 <table class="table table-bordered" id="ships_table" width="100%" cellspacing="0">
                     <thead>

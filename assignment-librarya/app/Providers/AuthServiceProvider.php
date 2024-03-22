@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+ use App\Policies\ArticlePolicy;
+ use App\Policies\StatisticPolicy;
  use Illuminate\Support\Facades\Gate;
  use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
  use App\Enums\Roles;
@@ -15,7 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-//        User::class => MenuItemPolicy::class,
+//
     ];
 
     /**
@@ -25,8 +27,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('isReviewer', static function ($user) {
+        Gate::define('isReviewer', static function (User $user) {
             return $user->role_id === Roles::REVIEWER;
+        });
+
+        Gate::define('isAuthor', static function (User $user) {
+            return $user->role_id === Roles::AUTHOR;
         });
     }
 }

@@ -29,9 +29,7 @@
 
     @if(\Illuminate\Support\Facades\Gate::allows('isReviewer'))
         <li class="nav-item">
-    {{--            <a href="{{ route('posts.edit', $post) }}">Edit Post</a>--}}
-                <a class="nav-link collapsed" href="{{--{{ route('statistics.index') }}--}}">
-
+                <a class="nav-link collapsed" href="{{ route('statistic.index') }}">
                 <i class="fas fa-users"></i>
                 <span>Statistics</span>
             </a>

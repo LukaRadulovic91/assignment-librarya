@@ -7,21 +7,18 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Models\Article;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ArticleResource;
-use App\Repositories\API\ArticleRepository;
+use Illuminate\View\View;
 
 class StatisticsController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(): View
     {
-        return (ArticleResource::collection($this->articleRepository->getArticles()))
-            ->response()
-            ->setStatusCode(Response::HTTP_OK);
+        $this->authorize('isReviewer');
+
+        return view('pages.statistics.index');
     }
 
     /**

@@ -28,6 +28,7 @@ Route::middleware(['auth:web'])->group(function () {
     })->name('dashboard');
 
     Route::resource('article', 'App\Http\Controllers\Web\ArticleController');
+    Route::resource('statistic', 'App\Http\Controllers\Web\StatisticsController', ['only' => ['index']]);
 
     Route::fallback(static function () {
         return back();

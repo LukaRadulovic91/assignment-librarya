@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\User;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         return view('pages.articles.index');
     }
@@ -21,6 +23,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        $this->authorize('isAuthor');
+
         return view('pages.articles.create');
 //        ->with([
 //            'users' => $this->getUsers()->toArray(),
