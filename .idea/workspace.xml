@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="13f76053-5d78-41af-b193-cef356e0c699" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/routes/web.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2dzi0E5jX1ozN4z75Hr5tTimwim" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bulk-cargo" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assignment-librarya/resources/views/pages" />
+      <recent name="$PROJECT_DIR$/assignment-librarya/resources/views" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="13f76053-5d78-41af-b193-cef356e0c699" name="Default Changelist" comment="" />
+      <created>1711017082666</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711017082666</updated>
+      <workItem from="1711017083857" duration="6542000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="724" y="405" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1711019046157">
+      <screen x="57" y="27" width="1863" height="1053" />
+    </state>
+    <state x="724" y="405" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/57.27.1863.1053@57.27.1863.1053" timestamp="1711019046157" />
+    <state x="771" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1711030458245">
+      <screen x="57" y="27" width="1863" height="1053" />
+    </state>
+    <state x="771" y="310" width="424" height="484" key="FileChooserDialogImpl/57.27.1863.1053@57.27.1863.1053" timestamp="1711030458245" />
+    <state x="784" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1711019010734">
+      <screen x="57" y="27" width="1863" height="1053" />
+    </state>
+    <state x="784" y="478" width="399" height="149" key="NewPhpFileDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1711019010734" />
+    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1711017765898">
+      <screen x="57" y="27" width="1863" height="1053" />
+    </state>
+    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1711017765898" />
+  </component>
+</project>
