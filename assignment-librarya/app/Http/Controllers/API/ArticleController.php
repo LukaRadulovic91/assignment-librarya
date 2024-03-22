@@ -3,17 +3,38 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use App\Models\Article;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\ArticleResource;
+use App\Repositories\API\ArticleRepository;
 
 class ArticleController extends Controller
 {
+    /** @var ArticleRepository $articleRepository */
+    private $articleRepository;
+
+    /**
+     * ArticleController constructor.
+     *
+     * @param ArticleRepository $articleRepository
+     */
+    public function __construct(ArticleRepository $articleRepository)
+    {
+        $this->articleRepository = $articleRepository;
+    }
+
     /**
      * Display a listing of the resource.
+     *
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        //
+        return (ArticleResource::collection($this->articleRepository->getArticles()))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     /**
