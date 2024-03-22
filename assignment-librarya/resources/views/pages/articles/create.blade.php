@@ -12,7 +12,7 @@
 
               <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                 <div class="text-center text-sm-left mb-2 mb-sm-0">
-                  <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Create Ship</h4>
+                  <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Create Article</h4>
                 </div>
               </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="tab-content pt-3">
               <div class="tab-pane active">
 
-                <form class="form" action="{{--{{ route('ships.store') }}--}}" method="post" enctype="multipart/form-data">
+                <form class="form" action="{{--{{ route('articles.store') }}--}}" method="post" enctype="multipart/form-data">
                   @csrf
                   @method('POST')
 
@@ -29,37 +29,22 @@
 
                         <div class="col">
                           <div class="form-group">
-                            <label>Name</label>
+                            <label>Title</label>
                             <input class="form-control"
                             type="text"
                             name="name"
                             required="required"
-                            placeholder="Name"
+                            placeholder="Title"
                             value="{{--{{ old('name') }}--}}">
                           </div>
 {{--                          @error('name')--}}
 {{--                              <div class="invalid-feedback" style="display: block">{{ $message }}</div>--}}
 {{--                          @enderror--}}
                         </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Serial number</label>
-                            <input class="form-control"
-                            type="text"
-                            name="serial_number"
-                            required="required"
-                            placeholder="Serial number"
-
-                            value="{{--{{ old('serial_number') }}--}}">
-{{--                            @error('serial_number')--}}
-{{--                              <div class="invalid-feedback" style="display: block">{{ $message }}</div>--}}
-{{--                            @enderror--}}
-                          </div>
-                        </div>
 
                         <div class="row">
                           <div class="col">
-
+                              <label>Text</label>
                               <div class="form-group">
                                   <textarea class="ckeditor form-control" name="wysiwyg-editor"></textarea>
                               </div>
