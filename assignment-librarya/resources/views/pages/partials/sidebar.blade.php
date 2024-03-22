@@ -21,7 +21,7 @@
     <!-- Nav Item - Pages Collapse Menu -->
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{--{{ route('articles.index') }}--}}">
+        <a class="nav-link collapsed" href="{{ route('article.index') }}">
             <i class="fas fa-ship"></i>
             <span>Articles</span>
         </a>

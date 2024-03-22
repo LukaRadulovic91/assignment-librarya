@@ -1,19 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
+use App\Models\Article;
 use App\Http\Controllers\Controller;
-use App\Models\ArticleUser;
+use App\Http\Resources\ArticleResource;
+use App\Repositories\API\ArticleRepository;
 
-class ArticleUserController extends Controller
+class StatisticsController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        //
+        return (ArticleResource::collection($this->articleRepository->getArticles()))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     /**
@@ -35,7 +43,7 @@ class ArticleUserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ArticleUser $articleUser)
+    public function show(Article $article)
     {
         //
     }
@@ -43,7 +51,7 @@ class ArticleUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ArticleUser $articleUser)
+    public function edit(Article $article)
     {
         //
     }
@@ -51,7 +59,7 @@ class ArticleUserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ArticleUser $articleUser)
+    public function update(Request $request, Article $article)
     {
         //
     }
@@ -59,7 +67,7 @@ class ArticleUserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ArticleUser $articleUser)
+    public function destroy(Article $article)
     {
         //
     }

@@ -101,6 +101,7 @@
 <script src="{{ asset('asset/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
 @yield('data-tables-js')
+@stack('scripts')
 
 <script>
     $(document).ready(function() {

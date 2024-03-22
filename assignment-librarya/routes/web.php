@@ -20,3 +20,16 @@ Route::get('/', static function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth:web'])->group(function () {
+
+    Route::get('dashboard', static function () {
+        return view('home');
+    })->name('dashboard');
+
+    Route::resource('article', 'App\Http\Controllers\Web\ArticleController');
+
+    Route::fallback(static function () {
+        return back();
+    });
+});
