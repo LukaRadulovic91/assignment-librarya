@@ -31,6 +31,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::group(['articles'], static function() {
         Route::resource('articles', 'App\Http\Controllers\Web\ArticleController', ['except' => ['destroy']]);
         Route::get('fetch', [App\Http\Controllers\Web\ArticleController::class, 'fetch'])->name('articles.fetch');
+        Route::post('{article}/submitted', [App\Http\Controllers\Web\ArticleController::class, 'submitted'])->name('articles.submitted');
     });
 
     /** Statistics routes */

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Enums\ApprovalStatus;
+use Illuminate\Support\Facades\Redirect;
 use Yajra\DataTables\Exceptions\Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -57,13 +59,20 @@ class ArticleController extends Controller
     public function store(CreateArticleRequest $request): RedirectResponse
     {
         try {
-            Article::create(array_merge($request->validated(), ['publication_status_id' => PublicationStatus::DRAFT]));
+            $article = Article::create(array_merge($request->validated(), ['publication_status_id' => PublicationStatus::DRAFT]));
+
+            $article->articlesUsers()->attach($article->id, [
+                'user_id' => auth()->user()->id,
+                'approval_status_id' => ApprovalStatus::DRAFT
+            ]);
+
         } catch (\Exception $exception) {
             Log::error($exception);
-            $this->error($exception->getMessage());
         }
 
-        return redirect()->route('articles.index');
+        return Redirect::route('articles.index')->with(
+            'systemMessage', ['created' => 'Your record has been successfully created!']
+        );
     }
 
     /**
@@ -110,11 +119,45 @@ class ArticleController extends Controller
                 'title' => $request->title,
                 'text' => $request->text
             ]);
+
+            $article->articlesUsers()->attach($article->id, [
+                'user_id' => auth()->user()->id,
+                'approval_status_id' => ApprovalStatus::DRAFT
+            ]);
+
         } catch (\Exception $exception) {
             Log::error($exception);
             $this->error($exception->getMessage());
         }
 
         return redirect()->route('articles.index');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Article $article
+     *
+     * @return JsonResponse
+     */
+    public function submitted(Article $article): JsonResponse
+    {
+        try {
+            $article->update([ 'publication_status_id' => PublicationStatus::PENDING_REVIEW ]);
+
+            $article->articlesUsers()->attach($article->id, [
+                'user_id' => auth()->user()->id,
+                'approval_status_id' => ApprovalStatus::DRAFT
+            ]);
+
+        } catch (\Exception $exception) {
+            Log::error($exception);
+            $this->error($exception->getMessage());
+        }
+
+        return response()->json([
+            'type' => 'success',
+            'notification' => __('Publication status has been successfully changed!')
+        ]);
     }
 }

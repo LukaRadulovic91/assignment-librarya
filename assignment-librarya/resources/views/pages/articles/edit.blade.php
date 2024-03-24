@@ -56,12 +56,18 @@
                       </div>
                     </div>
 
-                    <div class="row">
-                      <div class="col d-flex justify-content-end">
-                        <a href="{{ \URL::previous() }}" class="btn btn-primary">Back</a>
+                      <div class="row">
+                          <div class="col d-flex justify-content-end">
+                              <a href="{{ \URL::previous() }}" class="btn btn-primary mr-2">Back</a>
+                              @if($article->publication_status_id !== \App\Enums\PublicationStatus::PENDING_REVIEW)
+                                  <button class="btn btn-success mr-2" type="submit">Save</button>
+                                  <div>
+                                      <a href="{{ \URL::previous() }}" class="btn btn-warning submit-for-review">Submit For Review</a>
+                                  </div>
+                              @endif
+
+                          </div>
                       </div>
-                      <button class="btn btn-success" type="submit">Save Changes</button>
-                    </div>
 
                   </form>
 
@@ -84,5 +90,29 @@
         $(document).ready(function () {
             $('.ckeditor').ckeditor();
         });
+
+        $(document).on('click', '.submit-for-review', function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: "{{ route("articles.submitted", [$article->id]) }}",
+                type: 'POST',
+                dataType: "json",
+                data: {
+                    '_token': "{{ csrf_token() }}"
+                }
+            }).done(function (response) {
+                // srediti toaster
+                console.log('radi')
+                // toastr.success(response.notification, __('Training is successfully updated!'), {timeOut: 3000});
+                window.location.href = "{{ route("articles.index") }}";
+                // srediti toaster
+            }).fail(function (response) {
+                console.log(response)
+            }).always(function () {
+
+            })
+        });
+
     </script>
 @endpush
