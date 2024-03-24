@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Enums\ApprovalStatus;
+use App\Http\Requests\UpdateArticleRequest;
+use App\Http\Resources\Mobile\JobAdResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
@@ -30,58 +33,50 @@ class ArticleController extends Controller
      *
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function getReviewedArticles(): JsonResponse
     {
-        return (ArticleResource::collection($this->articleRepository->getArticles()))
+        return (ArticleResource::collection($this->articleRepository->getReviewedArticles()))
             ->response()
             ->setStatusCode(Response::HTTP_OK);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
+     *
+     * @return JsonResponse
      */
-    public function create()
+    public function getUnreviewedArticles(): JsonResponse
     {
-        //
+        return (ArticleResource::collection($this->articleRepository->getUnreviewedArticles()))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param UpdateArticleRequest $request
+     *
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function reviewArticles(UpdateArticleRequest $request): JsonResponse
     {
-        //
-    }
+        foreach ($request->validated()['data'] as $article) {
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Article $article)
-    {
-        //
-    }
+            $existingRecord = Article::find($article['id']);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Article $article)
-    {
-        //
-    }
+            if ($existingRecord) {
+                $existingRecord->articlesUsers()->attach($existingRecord->id, [
+                    'user_id' => auth()->user()->id,
+                    'approval_status_id' => $article['value']
+                ]);
+            }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Article $article)
-    {
-        //
-    }
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Article $article)
-    {
-        //
+        return response()->json([
+            'message' => 'Articles has been successfully reviewed!',
+            'status' => Response::HTTP_OK
+        ]);
     }
 }

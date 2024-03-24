@@ -22,9 +22,27 @@ Route::middleware(['auth:api', 'verified'])->group(function () {
 
     /** Reviewer routes */
     Route::group(['reviewer'], static function() {
-        Route::get('test', function () {
+        Route::get('test', static function () {
             return 'this is working';
         });
+    });
+
+    /** Articles routes */
+    Route::group(['articles'], static function() {
+        Route::get('reviewed-articles', [
+            App\Http\Controllers\API\ArticleController::class,
+            'getReviewedArticles'
+        ]);
+
+        Route::get('unreviewed-articles', [
+            App\Http\Controllers\API\ArticleController::class,
+            'getUnreviewedArticles'
+        ]);
+
+        Route::post('review-articles', [
+            App\Http\Controllers\API\ArticleController::class,
+            'reviewArticles'
+        ]);
     });
 
     Route::post('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
