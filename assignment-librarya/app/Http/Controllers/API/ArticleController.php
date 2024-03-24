@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Enums\ApprovalStatus;
-use App\Http\Requests\UpdateArticleRequest;
-use App\Http\Resources\Mobile\JobAdResource;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use App\Models\Article;
-use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateArticleRequest;
 use App\Http\Resources\ArticleResource;
+use App\Services\ArticleService;
 use App\Repositories\API\ArticleRepository;
+use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
+    /** @var ArticleService $articleService */
+    private $articleService;
+
     /** @var ArticleRepository $articleRepository */
     private $articleRepository;
 
@@ -22,9 +22,14 @@ class ArticleController extends Controller
      * ArticleController constructor.
      *
      * @param ArticleRepository $articleRepository
+     * @param ArticleService $articleService
      */
-    public function __construct(ArticleRepository $articleRepository)
+    public function __construct(
+        ArticleRepository $articleRepository,
+        ArticleService $articleService
+    )
     {
+        $this->articleService = $articleService;
         $this->articleRepository = $articleRepository;
     }
 
@@ -53,7 +58,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Adding review/s for articles resource.
      *
      * @param UpdateArticleRequest $request
      *
@@ -61,22 +66,15 @@ class ArticleController extends Controller
      */
     public function reviewArticles(UpdateArticleRequest $request): JsonResponse
     {
-        foreach ($request->validated()['data'] as $article) {
-
-            $existingRecord = Article::find($article['id']);
-
-            if ($existingRecord) {
-                $existingRecord->articlesUsers()->attach($existingRecord->id, [
-                    'user_id' => auth()->user()->id,
-                    'approval_status_id' => $article['value']
-                ]);
-            }
-
+        try {
+            $this->articleService->reviewArticles($request);
+        } catch (\Exception $exception) {
+            Log::error($exception);
         }
 
         return response()->json([
             'message' => 'Articles has been successfully reviewed!',
-            'status' => Response::HTTP_OK
+            'status' => Response::HTTP_CREATED
         ]);
     }
 }

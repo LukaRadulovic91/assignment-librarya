@@ -2,12 +2,9 @@
 
 namespace App\Repositories\API;
 
-use App\Models\Article;
-use App\Models\JobAd;
-use App\Models\Shift;
 use DB;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use App\Enums\ApprovalStatus;
 use App\Enums\PublicationStatus;
 
 /**
@@ -23,14 +20,22 @@ class ArticleRepository
     public function getReviewedArticles(): Collection
     {
         return DB::table('articles as a')
-            ->join('articles_users as au', 'a.id', '=', 'au.user_id')
-            ->where(function ($query) {
-                $query->where('a.publication_status_id', PublicationStatus::REJECTED)
-                      ->orWhere('a.publication_status_id', PublicationStatus::PUBLISHED);
+            ->join('articles_users as au', function ($join) {
+                $join->on('aa.id', '=', 'au.article_id')
+                    ->where('au.user_id', auth()->user()->id);
             })
-            ->where('au.user_id', auth()->user()->id)
+            ->join('users as u', 'au.user_id', '=', 'u.id')
             ->select([
-                'a.*'
+                'u.id as user_id',
+                'u.name as user_name',
+                'u.email as user_email',
+                'au.article_id as article_id',
+                'a.title as article_title',
+                'a.text as article_text',
+                'a.publication_status_id as publication_status_id',
+                'au.approval_status_id as approval_status_id',
+                'a.created_at as created_at',
+                'a.updated_at as updated_at'
             ])
             ->get();
     }
@@ -41,58 +46,27 @@ class ArticleRepository
     public function getUnreviewedArticles(): Collection
     {
         return DB::table('articles as a')
-            ->where('a.publication_status_id', PublicationStatus::PENDING_REVIEW)
+            ->leftJoin('articles_users as au', function ($join) {
+                $join->on('a.id', '=', 'au.article_id')
+                    ->where('au.user_id', auth()->user()->id);
+            })
+            ->leftJoin('users as u', 'au.user_id', '=', 'u.id')
+            ->where(static function($query) {
+                $query->where('a.publication_status_id', PublicationStatus::PENDING_REVIEW)
+                      ->where('au.approval_status_id', ApprovalStatus::DRAFT);
+            })
             ->select([
-                'a.*'
+                'u.id as user_id',
+                'u.name as user_name',
+                'u.email as user_email',
+                'au.article_id as article_id',
+                'a.title as article_title',
+                'a.text as article_text',
+                'a.publication_status_id as publication_status_id',
+                'au.approval_status_id as approval_status_id',
+                'a.created_at as created_at',
+                'a.updated_at as updated_at'
             ])
             ->get();
-    }
-
-    /**
-     * @param Request $request
-     * @param Article $article
-     *
-     * @return void
-     */
-    public function reviewArticles(Request $request, Article $article): void
-    {
-        foreach ($request->shifts as $shiftData) {
-            $this->updateShift($shiftData, $article);
-        }
-    }
-
-    /**
-     * @param $shiftData
-     * @param $jobAd
-     *
-     * @return void
-     */
-    private function updateShift($shiftData, $jobAd): void
-    {
-//        Shift::where('id', '=', $shiftData['id'])->update(
-//            [
-//                'start_date' => $shiftData['start_date'],
-//                'end_date' => $shiftData['end_date'],
-//                'start_time' => date('H:i:s', strtotime($shiftData['start_time'])),
-//                'end_time' => date('H:i:s', strtotime($shiftData['end_time'])),
-//            ]
-//        );
-    }
-
-    /**
-     * @param array $shiftData
-     * @param JobAd $jobAd
-     *
-     * @return void
-     */
-    private function createShift(array $shiftData, JobAd $jobAd): void
-    {
-//        Shift::create([
-//            'start_date' => $shiftData['start_date'],
-//            'end_date' => $shiftData['end_date'],
-//            'start_time' => date('H:i:s', strtotime($shiftData['start_time'])),
-//            'end_time' => date('H:i:s', strtotime($shiftData['end_time'])),
-//            'job_ad_id' => $jobAd->id
-//        ]);
     }
 }
