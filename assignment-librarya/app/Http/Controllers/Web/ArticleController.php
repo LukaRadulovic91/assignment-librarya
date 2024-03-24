@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Enums\ApprovalStatus;
 use Illuminate\Support\Facades\Redirect;
 use Yajra\DataTables\Exceptions\Exception;
 use Illuminate\Http\JsonResponse;
@@ -13,6 +12,7 @@ use App\Enums\PublicationStatus;
 use App\Models\Article;
 use App\Http\Requests\CreateArticleRequest;
 use App\Http\Controllers\Controller;
+use App\Services\ArticleService;
 
 /**
  * Class ArticleController
@@ -21,6 +21,20 @@ use App\Http\Controllers\Controller;
  */
 class ArticleController extends Controller
 {
+    /**
+     * @var ArticleService
+     */
+    private ArticleService $articleService;
+
+    /**
+     * ArticleController constructor.
+     *
+     * @param ArticleService $articleService
+     */
+    public function __construct(ArticleService $articleService)
+    {
+        $this->articleService = $articleService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -60,12 +74,7 @@ class ArticleController extends Controller
     {
         try {
             $article = Article::create(array_merge($request->validated(), ['publication_status_id' => PublicationStatus::DRAFT]));
-
-            $article->articlesUsers()->attach($article->id, [
-                'user_id' => auth()->user()->id,
-                'approval_status_id' => ApprovalStatus::DRAFT
-            ]);
-
+            $this->articleService->setApprovalStatus($article);
         } catch (\Exception $exception) {
             Log::error($exception);
         }
@@ -119,11 +128,7 @@ class ArticleController extends Controller
                 'title' => $request->title,
                 'text' => $request->text
             ]);
-
-            $article->articlesUsers()->attach($article->id, [
-                'user_id' => auth()->user()->id,
-                'approval_status_id' => ApprovalStatus::DRAFT
-            ]);
+            $this->articleService->setApprovalStatus($article);
 
         } catch (\Exception $exception) {
             Log::error($exception);
@@ -144,11 +149,7 @@ class ArticleController extends Controller
     {
         try {
             $article->update([ 'publication_status_id' => PublicationStatus::PENDING_REVIEW ]);
-
-            $article->articlesUsers()->attach($article->id, [
-                'user_id' => auth()->user()->id,
-                'approval_status_id' => ApprovalStatus::DRAFT
-            ]);
+            $this->articleService->setApprovalStatus($article);
 
         } catch (\Exception $exception) {
             Log::error($exception);

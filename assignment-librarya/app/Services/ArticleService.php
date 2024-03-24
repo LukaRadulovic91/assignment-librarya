@@ -4,7 +4,6 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Enums\ApprovalStatus;
-use App\Enums\PublicationStatus;
 use App\Models\ArticleUser;
 use App\Models\Article;
 
@@ -73,6 +72,19 @@ class ArticleService
     {
         Article::where('id', $articleUser->article_id)->update([
             'publication_status_id' => $publicationStatus
+        ]);
+    }
+
+    /**
+     * @param Article $article
+     *
+     * @return void
+     */
+    public function setApprovalStatus(Article $article): void
+    {
+        $article->articlesUsers()->attach($article->id, [
+            'user_id' => auth()->user()->id,
+            'approval_status_id' => ApprovalStatus::DRAFT
         ]);
     }
 }
