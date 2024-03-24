@@ -101,50 +101,12 @@
                         articleShowURL = articleShowURL.replace(':id', full.id);
                         articleEditURL = articleEditURL.replace(':id', full.id);
                         return '<a href="'+articleShowURL+'" class="btn btn-secondary btn-small waves-effect"><i class="ion-show">' +
-                            '</i> Show</a> <a href="'+articleEditURL+'" class="btn btn-primary btn-small waves-effect"><i class="ion-edit"></i> Edit</a> ' +
-                            '<button type="button" name="delete" id="'+full.id+'" class="delete btn btn-danger btn-small waves-effect">' +
-                            '<i class="ion-android-remove"></i> Delete</button>';
+                            '</i> Show</a> <a href="'+articleEditURL+'" class="btn btn-primary btn-small waves-effect"><i class="ion-edit"></i> Edit</a>';
                     }
                 }
             ],
             "order": [[ 0, "desc" ]],
         } );
-
-        var ship_id;
-
-        $(document).on('click', '.delete', function() {
-            ship_id = $(this).attr('id');
-
-            $('#confirmModal').modal('show');
-        });
-
-        {{--$('#ok_button').click(function() {--}}
-
-        {{--    var _token = "{{ csrf_token() }}";--}}
-        {{--    var shipDeleteUrl = '{{ route("ships.destroy", ":id") }}';--}}
-        {{--    shipDeleteUrl = shipDeleteUrl.replace(':id', ship_id);--}}
-
-        {{--    $.ajaxSetup({--}}
-        {{--        headers: {--}}
-        {{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-        {{--        }--}}
-        {{--    });--}}
-        {{--    $.ajax({--}}
-        {{--        url: shipDeleteUrl,--}}
-        {{--        type: 'delete',--}}
-        {{--        dataType: "json",--}}
-        {{--        data: {--}}
-        {{--            'id': ship_id,--}}
-        {{--            '_token':_token--}}
-        {{--        },--}}
-        {{--        success: function(data) {--}}
-        {{--                setTimeout(function() {--}}
-        {{--                    $('#confirmModal').modal('hide');--}}
-        {{--                    $('#ships_table').DataTable().ajax.reload();--}}
-        {{--                }, 300);--}}
-        {{--            }--}}
-        {{--        })--}}
-        {{--});--}}
 
     } );
 </script>

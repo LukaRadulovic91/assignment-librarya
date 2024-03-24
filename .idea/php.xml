@@ -115,6 +115,13 @@
       <path value="$PROJECT_DIR$/assignment-librarya/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/assignment-librarya/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/assignment-librarya/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/assignment-librarya/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/assignment-librarya/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/assignment-librarya/vendor/bensampo/laravel-enum" />
+      <path value="$PROJECT_DIR$/assignment-librarya/vendor/php-open-source-saver/jwt-auth" />
+      <path value="$PROJECT_DIR$/assignment-librarya/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/assignment-librarya/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/assignment-librarya/vendor/lcobucci/clock" />
     </include_path>
   </component>
   <component name="PhpUnit">

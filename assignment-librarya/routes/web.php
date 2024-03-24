@@ -29,7 +29,7 @@ Route::middleware(['auth:web'])->group(function () {
 
     /** Articles routes */
     Route::group(['articles'], static function() {
-        Route::resource('articles', 'App\Http\Controllers\Web\ArticleController');
+        Route::resource('articles', 'App\Http\Controllers\Web\ArticleController', ['except' => ['destroy']]);
         Route::get('fetch', [App\Http\Controllers\Web\ArticleController::class, 'fetch'])->name('articles.fetch');
     });
 

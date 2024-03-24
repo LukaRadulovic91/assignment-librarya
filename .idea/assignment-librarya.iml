@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/assignment-librarya/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/assignment-librarya/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/bensampo/laravel-enum" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/carbonphp/carbon-doctrine-types" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/composer" />
@@ -25,6 +26,7 @@
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/guzzlehttp/uri-template" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/hamcrest/hamcrest-php" />
+      <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/laminas/laminas-code" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/laravel/pint" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/laravel/prompts" />
@@ -33,6 +35,8 @@
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/laravel/serializable-closure" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/laravel/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/lcobucci/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/lcobucci/jwt" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/league/config" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/league/flysystem" />
@@ -41,6 +45,7 @@
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/namshi/jose" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/nette/schema" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/nette/utils" />
@@ -49,6 +54,7 @@
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/nunomaduro/termwind" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/php-open-source-saver/jwt-auth" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/phpunit/php-code-coverage" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/phpunit/php-file-iterator" />
@@ -121,6 +127,7 @@
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/assignment-librarya/vendor/yajra/laravel-datatables-oracle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

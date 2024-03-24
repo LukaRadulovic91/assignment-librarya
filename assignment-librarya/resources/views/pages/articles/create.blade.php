@@ -20,7 +20,7 @@
             <div class="tab-content pt-3">
               <div class="tab-pane active">
 
-                <form class="form" action="{{--{{ route('articles.store') }}--}}" method="post" enctype="multipart/form-data">
+                <form class="form" action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   @method('POST')
 
@@ -32,23 +32,22 @@
                             <label>Title</label>
                             <input class="form-control"
                             type="text"
-                            name="name"
+                            name="title"
                             required="required"
                             placeholder="Title"
-                            value="{{--{{ old('name') }}--}}">
+                            value="{{ old('title') }}">
                           </div>
-{{--                          @error('name')--}}
-{{--                              <div class="invalid-feedback" style="display: block">{{ $message }}</div>--}}
-{{--                          @enderror--}}
+                          @error('title')
+                              <div class="invalid-feedback" style="display: block">{{ $message }}</div>
+                          @enderror
                         </div>
 
                         <div class="row">
                           <div class="col">
                               <label>Text</label>
                               <div class="form-group">
-                                  <textarea class="ckeditor form-control" name="wysiwyg-editor"></textarea>
+                                  <textarea class="ckeditor form-control" name="text"></textarea>
                               </div>
-
                           </div>
                         </div>
 
