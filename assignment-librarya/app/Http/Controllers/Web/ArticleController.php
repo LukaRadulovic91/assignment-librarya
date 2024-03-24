@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Repositories\API\ArticleRepository;
 use Illuminate\Support\Facades\Redirect;
 use Yajra\DataTables\Exceptions\Exception;
 use Illuminate\Http\JsonResponse;
@@ -47,13 +48,15 @@ class ArticleController extends Controller
     }
 
     /**
+     * @param ArticleRepository $articleRepository
+     *
      * @return JsonResponse
      *
      * @throws Exception
      */
-    public function fetch()
+    public function fetch(ArticleRepository $articleRepository): JsonResponse
     {
-        return datatables(Article::get())->toJson();
+        return datatables($articleRepository->getArticles())->toJson();
     }
 
     /**

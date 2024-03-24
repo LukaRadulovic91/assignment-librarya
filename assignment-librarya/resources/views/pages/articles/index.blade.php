@@ -34,7 +34,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
-                            <th>Publication Status</th>
+                            <th>Approval Status</th>
                             <th>Last Update</th>
                             <th>Actions</th>
                         </tr>
@@ -42,24 +42,6 @@
                     <tbody>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-
-</div>
-<div id="confirmModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Check</h2>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p  style="margin:0;">Are you sure you want to delete this article?</p>
-            </div>
-            <div class="modal-footer">
-             <button type="button" name="ok_button" id="ok_button" class="btn btn-danger waves-effect"><i class="ion-android-remove"></i> Delete</button>
-                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Back</button>
             </div>
         </div>
     </div>
@@ -84,9 +66,9 @@
             serverSide: true,
             ajax: '{{ route('articles.fetch') }}',
             columns: [
-                { data: 'id', name: 'id' },
-                { data: 'title', name: 'title' },
-                { data: 'publication_status_id', name: 'publication_status_id' },
+                { data: 'article_id', name: 'article_id' },
+                { data: 'article_title', name: 'article_title' },
+                { data: 'approval_status', name: 'approval_status' },
                 {
                     data: 'updated_at',
                             "render": function ( data, type, full, meta ) {

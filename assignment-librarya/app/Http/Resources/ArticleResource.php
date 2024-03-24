@@ -25,7 +25,7 @@ class ArticleResource extends JsonResource
             'article_id' => $this->article_id,
             'article_title' => $this->article_title,
             'article_text' => $this->article_text,
-            'publication_status_id' => PublicationStatus::getDescription($this->publication_status_id),
+            'publication_status' => PublicationStatus::getDescription($this->publication_status_id),
             'approval_status_id' => ApprovalStatus::getDescription($this->approval_status_id),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at

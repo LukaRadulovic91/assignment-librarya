@@ -36,7 +36,6 @@
                         <th>Title</th>
                         <th>Publication Status</th>
                         <th>Last Update</th>
-                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -46,23 +45,6 @@
         </div>
     </div>
 
-</div>
-<div id="confirmModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Check</h2>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p  style="margin:0;">Are you sure you want to delete this ship?</p>
-            </div>
-            <div class="modal-footer">
-             <button type="button" name="ok_button" id="ok_button" class="btn btn-danger waves-effect"><i class="ion-android-remove"></i> Delete</button>
-                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Back</button>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection
 
@@ -82,28 +64,19 @@
         $('#statistics_table').DataTable( {
             processing: true,
             serverSide: true,
-            ajax: '{{ route('statistics.fetch') }}',
+            ajax: '{{ route('fetch-statistics.fetch') }}',
             columns: [
-                { data: 'user_id', name: 'user_id' },
+                { data: 'article_id', name: 'article_id' },
                 { data: 'article_title', name: 'article_title' },
-                { data: 'publication_status_id', name: 'publication_status_id' },
+                { data: 'publication_status', name: 'publication_status' },
                 {
                     data: 'updated_at',
                     "render": function ( data, type, full, meta ) {
                         return moment(data).format('DD MMM, YYYY. (HH:mm:ss)');
                     },
                     name: 'updated_at'
-                },
-                {{--{--}}
-                {{--    "render": function ( data, type, full, meta ) {--}}
-                {{--        var articleShowURL = '{{ route("articles.show", ":id") }}';--}}
-                {{--        var articleEditURL = '{{ route("articles.edit", ":id") }}';--}}
-                {{--        articleShowURL = articleShowURL.replace(':id', full.id);--}}
-                {{--        articleEditURL = articleEditURL.replace(':id', full.id);--}}
-                {{--        return '<a href="'+articleShowURL+'" class="btn btn-secondary btn-small waves-effect"><i class="ion-show">' +--}}
-                {{--            '</i> Show</a> <a href="'+articleEditURL+'" class="btn btn-primary btn-small waves-effect"><i class="ion-edit"></i> Edit</a>';--}}
-                {{--    }--}}
-                {{--}--}}
+                }
+
             ],
             "order": [[ 0, "desc" ]],
         } );
