@@ -20,12 +20,14 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('articles.index') }}">
-            <i class="fas fa-ship"></i>
-            <span>Articles</span>
-        </a>
-    </li>
+    @if(\Illuminate\Support\Facades\Gate::allows('isAuthor'))
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('articles.index') }}">
+                <i class="fas fa-ship"></i>
+                <span>Articles</span>
+            </a>
+        </li>
+    @endif
 
     @if(\Illuminate\Support\Facades\Gate::allows('isReviewer'))
         <li class="nav-item">

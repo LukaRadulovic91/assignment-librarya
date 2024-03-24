@@ -35,11 +35,14 @@ class ArticleController extends Controller
     {
         $this->articleService = $articleService;
     }
+
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
+        $this->authorize('isAuthor');
+
         return view('pages.articles.index');
     }
 

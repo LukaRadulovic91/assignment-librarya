@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Repositories\API\ArticleRepository;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Models\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
+use Yajra\DataTables\Exceptions\Exception;
 
 class StatisticsController extends Controller
 {
@@ -19,6 +20,18 @@ class StatisticsController extends Controller
         $this->authorize('isReviewer');
 
         return view('pages.statistics.index');
+    }
+
+    /**
+     * @param ArticleRepository $articleRepository
+     *
+     * @return JsonResponse
+     *
+     * @throws Exception
+     */
+    public function fetch(ArticleRepository $articleRepository)
+    {
+        return datatables($articleRepository->getReviewedArticles())->toJson();
     }
 
     /**

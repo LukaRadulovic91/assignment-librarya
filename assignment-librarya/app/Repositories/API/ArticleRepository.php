@@ -21,7 +21,7 @@ class ArticleRepository
     {
         return DB::table('articles as a')
             ->join('articles_users as au', function ($join) {
-                $join->on('aa.id', '=', 'au.article_id')
+                $join->on('a.id', '=', 'au.article_id')
                     ->where('au.user_id', auth()->user()->id);
             })
             ->join('users as u', 'au.user_id', '=', 'u.id')
