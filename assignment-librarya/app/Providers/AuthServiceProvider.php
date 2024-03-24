@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+ use App\Models\Article;
  use App\Policies\ArticlePolicy;
  use App\Policies\StatisticPolicy;
  use Illuminate\Support\Facades\Gate;
@@ -17,7 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-//
+//        Article::class => ArticlePolicy::class,
     ];
 
     /**

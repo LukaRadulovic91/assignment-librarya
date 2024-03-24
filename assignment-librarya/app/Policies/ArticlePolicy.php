@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Enums\Roles;
+use App\Models\Article;
 use App\Models\User;
 
 class ArticlePolicy
@@ -16,69 +16,42 @@ class ArticlePolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can view the model.
-     *
-     * @param User $user
-     *
-     * @return bool
-     */
-    public function view(User $user): bool
-    {
-//        return $user->role_id === Roles::CANDIDATE ? ($user->candidate->id === $candidate->id) : true;
         return true;
     }
 
     /**
-     * Determine whether the user can create models.
-     *
      * @param User $user
+     * @param Article $article
      *
      * @return bool
      */
-    public function create(User $user): bool
-    {
-        return $user->role_id === Roles::AUTHOR;
-    }
-
-    /**
-     * Determine whether the user can view the model.
-     *
-     * @param User $user
-     *
-     * @return bool
-     */
-    public function edit(User $user): bool
-    {
-//        return $user->role_id === Roles::CANDIDATE ? ($user->candidate->id === $candidate->id) : true;
-        return true;
-    }
-
-
-    /**
-     * Determine whether the user can update the model.
-     * @param User $user
-     *
-     * @return bool
-     */
-    public function update(User $user): bool
+    public function getReviewedArticles(User $user, Article $article): bool
     {
 //        return $user->candidate->id === $candidate->id;
         return true;
     }
 
     /**
-     * Determine whether the user can delete the model.
      * @param User $user
+     * @param Article $article
      *
      * @return bool
      */
-    public function delete(User $user): bool
+    public function getUnreviewedArticles(User $user, Article $article)
     {
-        //
+//        return $user->candidate->id === $candidate->id;
+        return true;
     }
 
+    /**
+     * @param User $user
+     * @param Article $article
+     *
+     * @return bool
+     */
+    public function reviewArticles(User $user, Article $article): bool
+    {
+        return true;
+//        return $user->role_id === Roles::CANDIDATE ? ($user->candidate->id === $candidate->id) : true;
+    }
 }

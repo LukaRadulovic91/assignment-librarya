@@ -20,13 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware(['auth:api', 'verified'])->group(function () {
 
-    /** Reviewer routes */
-    Route::group(['reviewer'], static function() {
-        Route::get('test', static function () {
-            return 'this is working';
-        });
-    });
-
     /** Articles routes */
     Route::group(['articles'], static function() {
         Route::get('reviewed-articles', [
