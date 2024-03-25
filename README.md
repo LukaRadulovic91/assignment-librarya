@@ -30,6 +30,8 @@ Back to console and type:
 Laravel server
 - type in console: php artisan serve
 
+WEB APP
+
 Emails for authors:                          Emails for reviewers:
 author1@mail.com,                            reviewer1@mail.com,
 author2@mail.com,                            reviewer2@mail.com,
@@ -38,6 +40,8 @@ author4@mail.com,                            reviewer4@mail.com,
 author5@mail.com                             reviewer5@mail.com
 
 Password: password
+
+API
 
 1. Open Postman
 2. Type in url line: http://127.0.0.1:8000/api/login and choose POST request
