@@ -68,7 +68,7 @@
             columns: [
                 { data: 'article_id', name: 'article_id' },
                 { data: 'article_title', name: 'article_title' },
-                { data: 'approval_status', name: 'approval_status' },
+                { data: 'publication_status', name: 'publication_status' },
                 {
                     data: 'updated_at',
                             "render": function ( data, type, full, meta ) {

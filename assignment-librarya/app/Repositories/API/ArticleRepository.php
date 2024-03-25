@@ -20,21 +20,20 @@ class ArticleRepository
     public function getArticles(): Collection
     {
         return DB::table('articles as a')
-            ->join('articles_users as au', 'a.id', '=', 'au.article_id')
             ->select([
                 'a.id as article_id',
                 'a.title as article_title',
                 'a.text as article_text',
-                'au.approval_status_id as approval_status_id',
                 'a.created_at as created_at',
                 'a.updated_at as updated_at'
             ])
             ->selectRaw("(CASE
-                WHEN au.approval_status_id = '" . ApprovalStatus::DRAFT . "' THEN '" . ApprovalStatus::getDescription(ApprovalStatus::DRAFT). "'
-                WHEN au.approval_status_id = '" . ApprovalStatus::APPROVED . "' THEN '" . ApprovalStatus::getDescription(ApprovalStatus::APPROVED). "'
-                WHEN au.approval_status_id = '" . ApprovalStatus::REJECTED . "' THEN '" . ApprovalStatus::getDescription(ApprovalStatus::REJECTED). "'
+                WHEN a.publication_status_id = '" . PublicationStatus::DRAFT . "' THEN '" . PublicationStatus::getDescription(PublicationStatus::DRAFT). "'
+                WHEN a.publication_status_id = '" . PublicationStatus::PENDING_REVIEW . "' THEN '" . PublicationStatus::getDescription(PublicationStatus::PENDING_REVIEW). "'
+                WHEN a.publication_status_id = '" . PublicationStatus::PUBLISHED . "' THEN '" . PublicationStatus::getDescription(PublicationStatus::PUBLISHED). "'
+                WHEN a.publication_status_id = '" . PublicationStatus::REJECTED . "' THEN '" . PublicationStatus::getDescription(PublicationStatus::REJECTED). "'
                 ELSE '-' END)
-            AS approval_status")
+            AS publication_status")
             ->get();
     }
 

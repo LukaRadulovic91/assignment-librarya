@@ -10,6 +10,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ArticleResource;
 use App\Repositories\API\ArticleRepository;
 
+/**
+ * Class StatisticsController
+ *
+ * @package App\Http\Controllers\API
+ */
 class StatisticsController extends Controller
 {
     /**
@@ -22,53 +27,5 @@ class StatisticsController extends Controller
         return (ArticleResource::collection($this->articleRepository->getArticles()))
             ->response()
             ->setStatusCode(Response::HTTP_OK);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Article $article)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Article $article)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Article $article)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Article $article)
-    {
-        //
     }
 }

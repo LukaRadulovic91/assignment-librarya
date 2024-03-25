@@ -13,6 +13,11 @@ use PHPOpenSourceSaver\JWTAuth\Support\CustomClaims;
 use App\Services\FormattedResponsesTrait;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class AuthController
+ *
+ * @package App\Http\Controllers\API
+ */
 class AuthController extends Controller
 {
     use FormattedResponsesTrait, CustomClaims;

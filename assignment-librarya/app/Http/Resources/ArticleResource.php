@@ -7,6 +7,11 @@ use App\Enums\PublicationStatus;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * Class ArticleResource
+ *
+ * @package App\Http\Resources
+ */
 class ArticleResource extends JsonResource
 {
     /**

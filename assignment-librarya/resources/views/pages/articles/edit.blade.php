@@ -59,7 +59,7 @@
                       <div class="row">
                           <div class="col d-flex justify-content-end">
                               <a href="{{ \URL::previous() }}" class="btn btn-primary mr-2">Back</a>
-                              @if($article->publication_status_id !== \App\Enums\PublicationStatus::PENDING_REVIEW)
+                              @if($article->publication_status_id === \App\Enums\PublicationStatus::DRAFT)
                                   <button class="btn btn-success mr-2" type="submit">Save</button>
                                   <div>
                                       <a href="{{ \URL::previous() }}" class="btn btn-warning submit-for-review">Submit For Review</a>
