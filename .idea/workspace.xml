@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13f76053-5d78-41af-b193-cef356e0c699" name="Default Changelist" comment="" />
+    <list default="true" id="13f76053-5d78-41af-b193-cef356e0c699" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/Web/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/Web/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/Web/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/Web/StatisticsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Http/Resources/ArticleResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Http/Resources/ArticleResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Repositories/API/ArticleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Repositories/API/ArticleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/resources/views/pages/articles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/resources/views/pages/articles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/resources/views/pages/statistics/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/resources/views/pages/statistics/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +158,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../the-marshall-group-backend" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
@@ -175,6 +183,7 @@
       <workItem from="1711017083857" duration="6542000" />
       <workItem from="1711093547791" duration="3475000" />
       <workItem from="1711209579325" duration="825000" />
+      <workItem from="1711275056472" duration="37749000" />
     </task>
     <servers />
   </component>
@@ -182,21 +191,29 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="721" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1711315397052">
+      <screen x="57" y="27" width="1863" height="1053" />
+    </state>
+    <state x="721" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1711315397052" />
     <state x="724" y="405" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1711019046157">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="724" y="405" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/57.27.1863.1053@57.27.1863.1053" timestamp="1711019046157" />
-    <state x="771" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1711097497334">
+    <state x="771" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1711314971117">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="771" y="310" width="424" height="484" key="FileChooserDialogImpl/57.27.1863.1053@57.27.1863.1053" timestamp="1711097497334" />
-    <state x="784" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1711095276618">
+    <state x="771" y="310" width="424" height="484" key="FileChooserDialogImpl/57.27.1863.1053@57.27.1863.1053" timestamp="1711314971117" />
+    <state x="784" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1711297885275">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="784" y="478" width="399" height="149" key="NewPhpFileDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1711095276618" />
-    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1711017765898">
+    <state x="784" y="478" width="399" height="149" key="NewPhpFileDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1711297885275" />
+    <state x="360" y="208" width="1357" height="708" key="find.popup" timestamp="1711316047398">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1711017765898" />
+    <state x="360" y="208" width="1357" height="708" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1711316047398" />
+    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1711304414025">
+      <screen x="57" y="27" width="1863" height="1053" />
+    </state>
+    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1711304414025" />
   </component>
 </project>

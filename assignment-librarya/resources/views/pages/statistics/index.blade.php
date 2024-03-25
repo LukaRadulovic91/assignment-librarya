@@ -12,75 +12,33 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Articles</h1>
 
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">List of articles</h6>
+    <div class="row">
+
+        <div class="card widget-flat col-lg-5 mr-5">
+            <div class="card-body">
+                <div class="float-end">
+                    <i class="mdi mdi-pulse widget-icon"></i>
+                </div>
+                <h5 class="text-muted fw-normal mt-0" title="Growth">Reviewed Articles</h5>
+                <h3 class="mt-3 mb-3">{{ $reviewedArticles }}</h3>
+                <p class="mb-0 text-muted">
+
+            </div>
         </div>
-        <div class="card-body">
-            @if(\Illuminate\Support\Facades\Gate::allows('isAuthor'))
-                <div class="my-lg-3 d-flex">
-                    <a href="{{ route('articles.create') }}"
-                       class="btn btn-success mr-auto waves-effect">
-                        <span class="btn-label">
-                            <i class="ion-android-add"></i>
-                        </span> Create Article
-                    </a>
-                </div><br>
-            @endif
-            <div class="table-responsive">
-                <table class="table table-bordered" id="statistics_table" width="100%" cellspacing="0">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Publication Status</th>
-                        <th>Last Update</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+
+        <div class="card widget-flat col-lg-5">
+            <div class="card-body">
+                <div class="float-end">
+                    <i class="mdi mdi-pulse widget-icon"></i>
+                </div>
+                <h5 class="text-muted fw-normal mt-0" title="Growth">Unreviewed Articles</h5>
+                <h3 class="mt-3 mb-3">{{ $unreviewedArticles }}</h3>
+                <p class="mb-0 text-muted">
+
             </div>
         </div>
     </div>
 
+
 </div>
-@endsection
-
-@section('data-tables-js')
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-<script>
-    $(document).ready( function () {
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $('#statistics_table').DataTable( {
-            processing: true,
-            serverSide: true,
-            ajax: '{{ route('fetch-statistics.fetch') }}',
-            columns: [
-                { data: 'article_id', name: 'article_id' },
-                { data: 'article_title', name: 'article_title' },
-                { data: 'publication_status', name: 'publication_status' },
-                {
-                    data: 'updated_at',
-                    "render": function ( data, type, full, meta ) {
-                        return moment(data).format('DD MMM, YYYY. (HH:mm:ss)');
-                    },
-                    name: 'updated_at'
-                }
-
-            ],
-            "order": [[ 0, "desc" ]],
-        } );
-
-    } );
-</script>
 @endsection

@@ -40,7 +40,6 @@ Route::middleware(['auth:web'])->group(function () {
     /** Statistics routes */
     Route::group(['statistics'], static function() {
         Route::resource('statistics', 'App\Http\Controllers\Web\StatisticsController', ['only' => ['index', 'fetch']]);
-        Route::get('fetch-statistics', [App\Http\Controllers\Web\StatisticsController::class, 'fetch'])->name('fetch-statistics.fetch');
     });
 
     Route::fallback(static function () {

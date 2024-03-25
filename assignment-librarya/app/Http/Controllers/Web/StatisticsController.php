@@ -2,14 +2,32 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Repositories\API\ArticleRepository;
-use Illuminate\Http\JsonResponse;
-use App\Http\Controllers\Controller;
 use Illuminate\View\View;
-use Yajra\DataTables\Exceptions\Exception;
+use App\Repositories\API\ArticleRepository;
+use App\Http\Controllers\Controller;
 
+/**
+ * Class StatisticsController
+ *
+ * @package App\Http\Controllers\Web
+ */
 class StatisticsController extends Controller
 {
+    /**
+     * @var ArticleRepository
+     */
+    private ArticleRepository $articleRepository;
+
+    /**
+     * StatisticsController constructor.
+     *
+     * @param ArticleRepository $articleRepository
+     */
+    public function __construct(ArticleRepository $articleRepository)
+    {
+        $this->articleRepository = $articleRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -17,18 +35,9 @@ class StatisticsController extends Controller
     {
         $this->authorize('isReviewer');
 
-        return view('pages.statistics.index');
-    }
-
-    /**
-     * @param ArticleRepository $articleRepository
-     *
-     * @return JsonResponse
-     *
-     * @throws Exception
-     */
-    public function fetch(ArticleRepository $articleRepository)
-    {
-        return datatables($articleRepository->getReviewedArticles())->toJson();
+        return view('pages.statistics.index', [
+            'reviewedArticles' => $this->articleRepository->getReviewedArticles()->count(),
+            'unreviewedArticles' => $this->articleRepository->getUnreviewedArticles()->count()
+        ]);
     }
 }
