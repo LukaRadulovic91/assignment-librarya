@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Enums\Roles;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Enums\ApprovalStatus;
 use App\Models\ArticleUser;
@@ -24,9 +26,10 @@ class ArticleService
         foreach ($request->validated()['data'] as $article) {
             $existingRecord = Article::find($article['id']);
             if ($existingRecord) {
-                $existingRecord->articlesUsers()->attach($existingRecord->id, [
+                $existingRecord->articlesUsers()->create([
                     'user_id' => auth()->user()->id,
-                    'approval_status_id' => $article['value']
+                    'approval_status_id' => $article['value'],
+                    'article_id' => $existingRecord->id
                 ]);
             }
         }
@@ -56,9 +59,8 @@ class ArticleService
             $query->where(function ($innerQuery) use ($articleUser) {
                 $innerQuery->where('article_id', $articleUser->article_id)
                     ->where('approval_status_id', ApprovalStatus::APPROVED);
-            })
-                ->orWhere('approval_status_id', ApprovalStatus::DRAFT);
-        })->count() >= 5;
+            });
+        })->count() >= User::where('role_id', Roles::REVIEWER)->get()->count();
     }
 
     /**

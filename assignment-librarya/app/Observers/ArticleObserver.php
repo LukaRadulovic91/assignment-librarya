@@ -37,15 +37,7 @@ class ArticleObserver
     {
         !$this->articleService->checkRejectedApprovalStatus($articleUser) ?:
             $this->articleService->setPublicationStatus($articleUser, PublicationStatus::REJECTED);
-    }
 
-    /**
-     * Handle the ArticleService "saving" event.
-     *
-     * @param ArticleUser $articleUser
-     */
-    public function saving(ArticleUser $articleUser)
-    {
         !$this->articleService->checkPublishingApprovalStatus($articleUser) ?:
             $this->articleService->setPublicationStatus($articleUser, PublicationStatus::PUBLISHED);
     }

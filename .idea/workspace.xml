@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="13f76053-5d78-41af-b193-cef356e0c699" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Repositories/API/ArticleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Repositories/API/ArticleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/API/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/API/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Observers/ArticleObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Observers/ArticleObserver.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Services/ArticleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Services/ArticleService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment-librarya/resources/views/pages/articles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/resources/views/pages/articles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +182,7 @@
       <workItem from="1711093547791" duration="3475000" />
       <workItem from="1711209579325" duration="825000" />
       <workItem from="1711275056472" duration="37749000" />
-      <workItem from="1711352214614" duration="6347000" />
+      <workItem from="1711352214614" duration="8723000" />
     </task>
     <servers />
   </component>
@@ -190,10 +190,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="721" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1711315397052">
+    <state x="721" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1711363621975">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="721" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1711315397052" />
+    <state x="721" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1711363621975" />
     <state x="724" y="405" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1711019046157">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
@@ -210,9 +210,9 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="360" y="208" width="1357" height="708" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1711361673293" />
-    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1711355543060">
+    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1711362262870">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1711355543060" />
+    <state x="651" y="257" width="672" height="678" key="search.everywhere.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1711362262870" />
   </component>
 </project>
