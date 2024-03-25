@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13f76053-5d78-41af-b193-cef356e0c699" name="Default Changelist" comment="" />
+    <list default="true" id="13f76053-5d78-41af-b193-cef356e0c699" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Services/ArticleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Services/ArticleService.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,7 +179,7 @@
       <workItem from="1711093547791" duration="3475000" />
       <workItem from="1711209579325" duration="825000" />
       <workItem from="1711275056472" duration="37749000" />
-      <workItem from="1711352214614" duration="9820000" />
+      <workItem from="1711352214614" duration="11127000" />
     </task>
     <servers />
   </component>
@@ -200,10 +203,10 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="784" y="478" width="399" height="149" key="NewPhpFileDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1711297885275" />
-    <state x="360" y="208" width="1357" height="708" key="find.popup" timestamp="1711364479424">
+    <state x="360" y="208" width="1357" height="708" key="find.popup" timestamp="1711366244488">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="360" y="208" width="1357" height="708" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1711364479424" />
+    <state x="360" y="208" width="1357" height="708" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1711366244488" />
     <state x="651" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1711362262870">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>

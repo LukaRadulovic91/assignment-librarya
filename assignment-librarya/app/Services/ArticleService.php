@@ -26,7 +26,7 @@ class ArticleService
         foreach ($request->validated()['data'] as $article) {
             $existingRecord = Article::find($article['id']);
             if ($existingRecord) {
-                $existingRecord->articlesUsers()->create([
+                ArticleUser::create([
                     'user_id' => auth()->user()->id,
                     'approval_status_id' => $article['value'],
                     'article_id' => $existingRecord->id
