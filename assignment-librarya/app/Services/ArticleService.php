@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use App\Enums\Roles;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Enums\Roles;
 use App\Enums\ApprovalStatus;
+use App\Models\User;
 use App\Models\ArticleUser;
 use App\Models\Article;
 

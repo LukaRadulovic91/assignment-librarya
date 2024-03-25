@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Enums\Roles;
 use DB;
 use Validator;
 use JWTAuth;
@@ -10,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use PHPOpenSourceSaver\JWTAuth\Support\CustomClaims;
+use App\Enums\Roles;
 use App\Services\FormattedResponsesTrait;
 use App\Http\Controllers\Controller;
 

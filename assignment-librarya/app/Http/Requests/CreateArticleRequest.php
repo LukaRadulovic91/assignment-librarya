@@ -4,6 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class CreateArticleRequest
+ *
+ * @package App\Http\Requests
+ */
 class CreateArticleRequest extends FormRequest
 {
     /**
