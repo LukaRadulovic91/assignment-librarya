@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\PublicationStatus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,7 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'publication_status_id' => fake()->numberBetween(1,4),
+            'publication_status_id' => PublicationStatus::DRAFT,
             'title' => fake()->sentence,
             'text' => fake()->text(500),
             'created_at' => Carbon::now(),
