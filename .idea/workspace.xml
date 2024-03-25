@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13f76053-5d78-41af-b193-cef356e0c699" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/API/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/API/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/API/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Http/Controllers/API/StatisticsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Http/Requests/CreateArticleRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Http/Requests/CreateArticleRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Http/Requests/UpdateArticleRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Http/Requests/UpdateArticleRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment-librarya/app/Services/ArticleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/assignment-librarya/app/Services/ArticleService.php" afterDir="false" />
-    </list>
+    <list default="true" id="13f76053-5d78-41af-b193-cef356e0c699" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +176,7 @@
       <workItem from="1711093547791" duration="3475000" />
       <workItem from="1711209579325" duration="825000" />
       <workItem from="1711275056472" duration="37749000" />
-      <workItem from="1711352214614" duration="9149000" />
+      <workItem from="1711352214614" duration="9820000" />
     </task>
     <servers />
   </component>

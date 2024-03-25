@@ -35,10 +35,10 @@ class ArticleObserver
      */
     public function created(ArticleUser $articleUser)
     {
-        !$this->articleService->checkRejectedApprovalStatus($articleUser) ?:
-            $this->articleService->setPublicationStatus($articleUser, PublicationStatus::REJECTED);
-
         !$this->articleService->checkPublishingApprovalStatus($articleUser) ?:
             $this->articleService->setPublicationStatus($articleUser, PublicationStatus::PUBLISHED);
+
+        !$this->articleService->checkRejectedApprovalStatus($articleUser) ?:
+            $this->articleService->setPublicationStatus($articleUser, PublicationStatus::REJECTED);
     }
 }
