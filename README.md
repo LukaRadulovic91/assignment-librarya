@@ -64,7 +64,7 @@ key: Accept,
 value: application/json
 * Authorization: choose 'Bearer token' and paste copied one
 7. Follow sixth step and instead .../reviewed-articles type .../unreviewed-articles
-8. Follow sixth step and put in url line: http://127.0.0.1:8000/api/review-articles and choose POST request
+8. Follow sixth step and put in url line: http://127.0.0.1:8000/api/review-articles and choose POST request,
 Body tab: example of data set
 {
     "data": [
