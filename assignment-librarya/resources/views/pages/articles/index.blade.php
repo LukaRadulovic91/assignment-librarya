@@ -82,8 +82,13 @@
                         var articleEditURL = '{{ route("articles.edit", ":id") }}';
                         articleShowURL = articleShowURL.replace(':id', full.article_id);
                         articleEditURL = articleEditURL.replace(':id', full.article_id);
-                        return '<a href="'+articleShowURL+'" class="btn btn-secondary btn-small waves-effect"><i class="ion-show">' +
-                            '</i> Show</a> <a href="'+articleEditURL+'" class="btn btn-primary btn-small waves-effect"><i class="ion-edit"></i> Edit</a>';
+
+                        if (full.publication_status === 'Draft') {
+                            return '<a href="'+articleShowURL+'" class="btn btn-secondary btn-small waves-effect"><i class="ion-show"></i> Show</a>' +
+                                ' <a href="'+articleEditURL+'" class="btn btn-primary btn-small waves-effect"><i class="ion-edit"></i> Edit</a>';
+                        } else {
+                            return '<a href="'+articleShowURL+'" class="btn btn-secondary btn-small waves-effect"><i class="ion-show"></i> Show</a>';
+                        }
                     }
                 }
             ],

@@ -79,7 +79,10 @@ class ArticleRepository
         return DB::table('articles as a')
             ->leftJoin('articles_users as au', function ($join) {
                 $join->on('a.id', '=', 'au.article_id')
-                    ->where('au.user_id', auth()->user()->id);
+                    ->where(function ($query)  {
+                        $query->where('au.user_id', auth()->user()->id)
+                            ->orWhere('au.approval_status_id', PublicationStatus::DRAFT);
+                    });
             })
             ->leftJoin('users as u', 'au.user_id', '=', 'u.id')
             ->where(static function($query) {
