@@ -38,3 +38,41 @@ author4@mail.com,                            reviewer4@mail.com,
 author5@mail.com                             reviewer5@mail.com
 
 Password: password
+
+1. Open Postman
+2. Type in url line: http://127.0.0.1:8000/api/login and choose POST request
+3. Headers tab: 
+key: Accept,
+value: application/json
+4. Body tab:
+choose 'raw',
+select 'JSON' nomination,
+put:
+{
+    "email" : "reviewer1@mail.com",
+    "password" : "password"
+}
+5. When you get a response copy 'token'
+6. Open new tab:
+* type in url line: http://127.0.0.1:8000/api/reviewed-articles and choose GET request
+* Headers tab: 
+key: Accept,
+value: application/json
+* Authorization: choose 'Bearer token' and paste copied one
+7. Follow sixth step and instead .../reviewed-articles type .../unreviewed-articles
+8. Follow sixth step and put in url line: http://127.0.0.1:8000/api/review-articles and choose POST request
+Body tab: example of data set
+{
+    "data": [
+        {
+            "id": 29,
+            "value": 2
+        },
+        {
+            "id": 30,
+            "value": 2
+        }
+    ]
+}
+
+
