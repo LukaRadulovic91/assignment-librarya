@@ -4,6 +4,11 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
+/**
+ * Class ApprovalStatus
+ *
+ * @package App\Enums
+ */
 final class ApprovalStatus extends BaseEnum
 {
     const DRAFT = 1;

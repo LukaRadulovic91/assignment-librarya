@@ -6,6 +6,11 @@ use Exception;
 use BenSampo\Enum\Contracts\LocalizedEnum;
 use BenSampo\Enum\Enum;
 
+/**
+ * Class BaseEnum
+ *
+ * @package App\Enums
+ */
 abstract class BaseEnum extends Enum implements LocalizedEnum
 {
     /**

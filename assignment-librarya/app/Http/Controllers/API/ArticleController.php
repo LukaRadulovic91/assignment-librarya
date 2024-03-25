@@ -10,6 +10,11 @@ use App\Services\ArticleService;
 use App\Repositories\API\ArticleRepository;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class ArticleController
+ *
+ * @package App\Http\Controllers\API
+ */
 class ArticleController extends Controller
 {
     /** @var ArticleService $articleService */

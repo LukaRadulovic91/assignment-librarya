@@ -6,6 +6,11 @@ use App\Enums\PublicationStatus;
 use App\Services\ArticleService;
 use App\Models\ArticleUser;
 
+/**
+ * Class ArticleObserver
+ *
+ * @package App\Observers
+ */
 class ArticleObserver
 {
     /**
